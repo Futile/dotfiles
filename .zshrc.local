@@ -1,0 +1,3 @@
+# alias for netcfgd
+alias netcfgd='sudo NETCFG_DEBUG="1" netcfg '
+
