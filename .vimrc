@@ -24,7 +24,7 @@ syntax on
 syntax enable
 
 " Colorscheme! will probably have to try some here
-colorscheme desert
+colorscheme autumn_YorickPeterse
 set background=dark
 
 " utf8 by default
@@ -136,40 +136,23 @@ let g:mapleader = ","
 " nmap = map for normal mode(not visual, insert, etc)
 nmap <leader>w :w!<cr>
 
-" Neo keyboard layout mappings, by swapping
-" no = noremap, maps in nvo modes(normal, visual, operator pending)
-"no s h
-"no S H
-"no h s
-"no H S
-"no n j
-"no N J
-"no j n
-"no J N
-"no r k
-"no R K
-"no k r
-"no K R
-"no t l
-"no T L
-"no l t
-"no L T
+" map ctrl-v to vsplit and ctrl-s to split
+map <C-v> :vsplit<cr>
+map <C-s> :split<cr>
 
 " map space to search(/), and ctrl-space to backwards search(?)
 map <space> /
 map <C-@> ?
 
 " Smart way to move between windows - will i have to adjust this for neo? - yes.
-map <C-n> <C-W>j
-map <C-r> <C-W>k
-map <C-s> <C-W>h
-map <C-t> <C-W>l
+map ∫ <C-W>h
+map ∀ <C-W>j
+map Λ <C-W>k
+map ∃ <C-W>l
 
-" fix redo
-map <leader>r :redo<cr>
-
-map <C-Tab> :echo "test!"<cr>
-map <C-S-Tab> :tabp
+" Smart way to move between tabs - in NEO! :D
+map √ :tabprev<cr>
+map ℂ :tabnext<cr>
 
 " Useful mappings for tab-management
 map <leader>tn :tabnew<cr>
@@ -197,13 +180,3 @@ map 0 ^
 
 " Open browser on url in line
 map <leader>b :call Browser ()<cr>
-
-
-
-
-
-
-
-
-
-
