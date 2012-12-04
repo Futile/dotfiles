@@ -10,6 +10,9 @@ set ttyfast
 " zsh shell
 set shell=zsh
 
+" we use a 256 color terminal(i hope)
+set t_Co=256
+
 " Keep 1000 lines of history
 set history=1000
 
@@ -23,9 +26,16 @@ set number
 syntax on
 syntax enable
 
-" Colorscheme! will probably have to try some here
-colorscheme autumn_YorickPeterse
+" Dark Background, usually the colorscheme sets this, but who knows. also 8
+" color terminals.
 set background=dark
+
+" if we run in X, nice colortheme, else default
+if $DISPLAY != ''
+    colorscheme jellybeans
+else
+    colorscheme default
+endif
 
 " utf8 by default
 set encoding=utf8
