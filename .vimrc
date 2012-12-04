@@ -30,7 +30,7 @@ set background=dark
 " utf8 by default
 set encoding=utf8
 
-" switch form unsaved buffers
+" switch from unsaved buffers
 set hidden
 
 " no backups(but we keep swapfiles)
@@ -75,6 +75,9 @@ set sidescrolloff=7
 " Display the cursor position with a ruler
 set ruler
 
+" Underline current line
+set cursorline
+
 " Always display a status line
 set laststatus=2
 
@@ -111,10 +114,12 @@ set smarttab "be smart about tabs!
 set list
 set listchars=tab:>·,trail:·
 
+
 " Automatic indentation, if the filetype is not known
 set autoindent
 set smartindent
 set wrap "Wrap long lines!(soft)
+
 " -------------------------------
 " Functions
 " -------------------------------
@@ -135,6 +140,8 @@ let g:mapleader = ","
 " Fast saving - ima try this.
 " nmap = map for normal mode(not visual, insert, etc)
 nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
+nmap <leader>x :x<cr>
 
 " map ctrl-v to vsplit and ctrl-s to split
 map <C-v> :vsplit<cr>
@@ -171,7 +178,7 @@ autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
-    
+
 " viminfo settings; remember open buffers on close
 set viminfo^=%
 
