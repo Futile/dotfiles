@@ -6,3 +6,6 @@ alias startx='startx &> ~/.xlog'
 
 # prevent C-s from freezing my terminal(flow control, it locks the scrolling, so to say)
 stty ixoff -ixon
+
+# activate rupa's z: https://github.com/rupa/z
+. ~/gits/rupa-z/z.sh
