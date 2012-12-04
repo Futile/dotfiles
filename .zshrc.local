@@ -1,5 +1,8 @@
 # alias for netcfgd
 alias netcfgd='sudo NETCFG_DEBUG="1" netcfg '
 
+# alias to start X with local logging
+alias startx='startx &> ~/.xlog'
+
 # prevent C-s from freezing my terminal(flow control, it locks the scrolling, so to say)
 stty ixoff -ixon
