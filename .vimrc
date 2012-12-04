@@ -139,9 +139,12 @@ let g:mapleader = ","
 
 " Fast saving - ima try this.
 " nmap = map for normal mode(not visual, insert, etc)
-nmap <leader>w :w!<cr>
+nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>x :x<cr>
+
+" Easily save files opened as a user with sudo
+nmap <leader>sw :silent :w !sudo tee % > /dev/null<cr>:edit!<cr>
 
 " map ctrl-v to vsplit and ctrl-s to split
 map <C-v> :vsplit<cr>
