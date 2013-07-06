@@ -4,7 +4,7 @@
 URxvt.scrollstyle: plain
 
 ! - set as login shell
-URxvt*loginShell: true
+URxvt.loginShell: true
 
 ! - save 10000 lines
 URxvt.saveLines: 10000
@@ -14,7 +14,7 @@ URxvt.foreground: white
 URxvt.background: black
 
 ! - Inconsolata, 11pt
-URxvt.font: xft:inconsolata:pixelsize=11
+URxvt.font: xft:inconsolata:pixelsize=12
 
 ! - font antialiasing
 URxvt.xftAntialias: true
