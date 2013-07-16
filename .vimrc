@@ -1,9 +1,6 @@
 " we use vim, not vi
 set nocompatible
 
-" enable filetype detection/auto indentation
-filetype indent plugin on
-
 " we have a fast terminal
 set ttyfast
 
@@ -111,7 +108,7 @@ set notimeout ttimeout ttimeoutlen=200
 
 " I have no idea what this does yet, so fuck it.
 " Use <F11> to toggle between 'paste' and 'nopaste'
-" set pastetoggle=<F11>
+set pastetoggle=<F11>
 
 " Indentation options
 set shiftwidth=4
@@ -164,17 +161,25 @@ map <C-s> :split<cr>
 map <space> /
 map <C-@> ?
 
-" Smart way to move between windows - will i have to adjust this for neo? - yes.
+" Smart way to move between windows, adjusted for neo!
+" in insert mode
+imap ∫ <C-o><C-W>h
+imap ∀ <C-o><C-W>j
+imap Λ <C-o><C-W>k
+imap ∃ <C-o><C-W>l
+" and in other modes
 map ∫ <C-W>h
 map ∀ <C-W>j
 map Λ <C-W>k
 map ∃ <C-W>l
 
 " Smart way to move between tabs - in NEO! :D
-map √ :tabprev<cr>
-map ℂ :tabnext<cr>
-
-" Useful mappings for tab-management
+" in insert mode
+imap √ <C-o>:tabprev<cr>
+imap ℂ <C-o>:tabnext<cr>
+imap √ <C-o>:tabprev<cr>
+imap ℂ <C-o>:tabnext<cr>
+" in other modes
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
@@ -199,4 +204,63 @@ set viminfo^=%
 map 0 ^
 
 " Open browser on url in line
-map <leader>b :call Browser ()<cr>
+map <C-b> :call Browser ()<cr>
+
+" required for vundle
+filetype off
+
+" use vundle to manage bundles/plugins.
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" ------------------------------------------------------------------------------------------------------------------
+" vim-scripts & bundles
+" ------------------------------------------------------------------------------------------------------------------
+Bundle 'L9'
+
+" fuzzy finder for files, buffers and tags.
+Bundle 'FuzzyFinder'
+nnoremap <leader>b :FufBuffer<CR>
+nnoremap <leader>f :FufFile **/<CR>
+nnoremap <leader>tt :FufTag<CR>
+
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'derekwyatt/vim-scala'
+
+" show 'Match x of y' when searching
+Bundle 'henrik/vim-indexed-search'
+
+" GUndo script, presents a graphical representation of the vim undo tree
+Bundle 'sjl/gundo.vim'
+nnoremap <silent> <F5> :GundoToggle<CR>
+let g:gundo_close_on_revert=1
+
+" zoom in a window, 'minimzing' all others. using again toggles back.
+Bundle 'vim-scripts/ZoomWin'
+map <leader>o <C-W>o
+
+" easy way to switch to a buffer, or delet a buffer/tab.
+Bundle 'jeetsukumaran/vim-buffergator'
+nnoremap <silent> <F4> :BuffergatorToggle<CR>
+nnoremap <silent> <F3> :BuffergatorTabsToggle<CR>
+
+" file browser
+Bundle 'scrooloose/nerdtree'
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" 'vim plugin so good its criminal'
+Bundle 'tpope/vim-fugitive'
+
+" vimside bundles
+Bundle 'megaannum/self'
+Bundle 'megaannum/forms'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+Bundle 'megaannum/vimside'
+
+" enable filetype detection/auto indentation
+filetype indent plugin on
