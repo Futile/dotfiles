@@ -273,11 +273,11 @@ nmap <F8> :TagbarToggle<CR>
 Bundle 'tpope/vim-fugitive'
 
 " vimside bundles
-Bundle 'megaannum/self'
-Bundle 'megaannum/forms'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
-disable C-b for browser, since it messes with page downBundle 'megaannum/vimside'
+"Bundle 'megaannum/self'
+"Bundle 'megaannum/forms'
+"Bundle 'megaannum/vimside'
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
     colorscheme jellybeans "gvim
