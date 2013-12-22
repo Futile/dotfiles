@@ -211,7 +211,8 @@ set viminfo^=%
 map 0 ^
 
 " Open browser on url in line
-map <C-b> :call Browser ()<cr>
+" this messes with C-b for page down ;(
+"map <C-b> :call Browser ()<cr>
 
 " required for vundle
 filetype off
