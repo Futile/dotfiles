@@ -25,3 +25,5 @@ export PYTHONPATH=/usr/lib/python3.3/site-packages
 # export _JAVA_OPTIONS
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
+# strong powerline
+. /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
