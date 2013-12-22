@@ -122,7 +122,6 @@ set cindent "indentation for c-family files
 set list
 set listchars=tab:>·,trail:·
 
-
 " Automatic indentation, if the filetype is not known
 set autoindent
 set smartindent
@@ -142,8 +141,8 @@ endfunction
 " -------------------------------
 
 " Use , as a leader
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = " "
+let g:mapleader = " "
 
 " Fast saving - ima try this.
 " nmap = map for normal mode(not visual, insert, etc)
@@ -159,8 +158,8 @@ map <C-v> :vsplit<cr>
 map <C-s> :split<cr>
 
 " map space to search(/), and ctrl-space to backwards search(?)
-map <space> /
-map <C-@> ?
+"map <space> /
+"map <C-@> ?
 
 " Smart way to move between windows, adjusted for neo!
 " in insert mode
