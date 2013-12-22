@@ -261,6 +261,14 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" annotations
+Bundle 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list=1
+
+" majutsushi's tagbar
+Bundle 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
+
 " 'vim plugin so good its criminal'
 Bundle 'tpope/vim-fugitive'
 
