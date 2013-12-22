@@ -300,6 +300,9 @@ nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " extended C++ syntax highlighting
 Bundle 'octol/vim-cpp-enhanced-highlight'
 
+" color highlighting for css
+Bundle 'ap/vim-css-color'
+
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
     colorscheme jellybeans "gvim
