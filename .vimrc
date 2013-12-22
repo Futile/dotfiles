@@ -57,7 +57,7 @@ set ignorecase
 set smartcase
 
 " Show matching brackets, blink for 2/10 of a second
-set showmatch
+set showmatch 
 set mat=2
 
 " Allow backspacing over autoindent, line breaks and start of insert action
@@ -227,6 +227,13 @@ Bundle 'FuzzyFinder'
 nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>f :FufFile **/<CR>
 nnoremap <leader>tt :FufTag<CR>
+
+" some colorschemes
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'morhetz/gruvbox'
+
+" rainbow parentheses
+Bundle 'oblitum/rainbow'
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'derekwyatt/vim-scala'
