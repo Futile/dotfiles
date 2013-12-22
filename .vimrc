@@ -321,6 +321,8 @@ if has("gui_running")
 "default is: aegimrLtT
 endif
 
+" DON'T save global options in session file(so changes to .vimrc take effect)
+set ssop-=options
 
 " enable filetype detection/auto indentation
 filetype indent plugin on
