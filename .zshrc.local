@@ -18,3 +18,7 @@ export PATH="/usr/lib/ccache/bin:$PATH"
 
 # export SCALA_HOME
 export SCALA_HOME="/usr/share/scala"
+
+# export PYTHONPATH
+export PYTHONPATH=/usr/lib/python3.3/site-packages
+
