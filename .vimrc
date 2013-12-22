@@ -286,6 +286,9 @@ Bundle 'Shougo/vimshell'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'beyondmarc/hlsl.vim'
 
+" markdown filetype and syntax
+Bundle 'tpope/vim-markdown'
+
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
     colorscheme jellybeans "gvim
