@@ -312,6 +312,15 @@ else
     colorscheme default "terminal without X
 endif
 
+" guioptions
+if has("gui_running")
+    set guioptions= "clear guioptions
+    set guioptions+=a "auto-something
+    set guioptions+=c "simple dialogs in commandline instead of popup windows
+    set guioptions+=i "show icon
+"default is: aegimrLtT
+endif
+
 
 " enable filetype detection/auto indentation
 filetype indent plugin on
