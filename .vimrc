@@ -177,13 +177,14 @@ map ∃ <C-W>l
 " in insert mode
 imap √ <C-o>:tabprev<cr>
 imap ℂ <C-o>:tabnext<cr>
-imap √ <C-o>:tabprev<cr>
-imap ℂ <C-o>:tabnext<cr>
 " in other modes
+map √ :tabprev<cr>
+map ℂ :tabnext<cr>
+" other tab commands
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+map <leader>tm :tabmove<cr>
 
 " Open new tabs in the current buffer's path
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
