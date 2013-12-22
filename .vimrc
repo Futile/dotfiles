@@ -281,6 +281,11 @@ Bundle 'Shougo/vimshell'
 "Bundle 'megaannum/self'
 "Bundle 'megaannum/forms'
 "Bundle 'megaannum/vimside'
+
+" GLSL&HLSL highlighting
+Bundle 'tikhomirov/vim-glsl'
+Bundle 'beyondmarc/hlsl.vim'
+
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
     colorscheme jellybeans "gvim
