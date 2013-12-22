@@ -22,3 +22,6 @@ export SCALA_HOME="/usr/share/scala"
 # export PYTHONPATH
 export PYTHONPATH=/usr/lib/python3.3/site-packages
 
+# export _JAVA_OPTIONS
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
+
