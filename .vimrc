@@ -297,6 +297,9 @@ let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
 nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" extended C++ syntax highlighting
+Bundle 'octol/vim-cpp-enhanced-highlight'
+
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
     colorscheme jellybeans "gvim
