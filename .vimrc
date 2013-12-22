@@ -27,13 +27,6 @@ syntax enable
 " color terminals.
 set background=dark
 
-" if we run in X, nice colortheme, else default
-if $DISPLAY != ''
-    colorscheme jellybeans
-else
-    colorscheme default
-endif
-
 " utf8 by default
 set encoding=utf8
 
@@ -218,6 +211,7 @@ map 0 ^
 filetype off
 
 " use vundle to manage bundles/plugins.
+" do this before setting the colorscheme
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -268,7 +262,16 @@ Bundle 'megaannum/self'
 Bundle 'megaannum/forms'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
-Bundle 'megaannum/vimside'
+disable C-b for browser, since it messes with page downBundle 'megaannum/vimside'
+" set colorscheme AFTER loading runtimepaths using vundle, so all can be found
+if has("gui_running")
+    colorscheme jellybeans "gvim
+elseif $DISPLAY != ''
+    colorscheme jellybeans "terminal in X
+else
+    colorscheme default "terminal without X
+endif
+
 
 " enable filetype detection/auto indentation
 filetype indent plugin on
