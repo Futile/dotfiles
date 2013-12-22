@@ -289,6 +289,14 @@ Bundle 'beyondmarc/hlsl.vim'
 " markdown filetype and syntax
 Bundle 'tpope/vim-markdown'
 
+" YCM, best autocompletion? ohhh yes!
+" see end of file for globlist
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
+let g:ycm_allow_changing_updatetime = 0
+set updatetime=1000
+nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
     colorscheme jellybeans "gvim
