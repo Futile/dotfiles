@@ -272,6 +272,9 @@ nmap <F8> :TagbarToggle<CR>
 " 'vim plugin so good its criminal'
 Bundle 'tpope/vim-fugitive'
 
+" vim dispatch, run commands in background
+Bundle 'tpope/vim-dispatch'
+
 " vimside bundles
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
