@@ -154,7 +154,7 @@ nmap <leader>x :x<cr>
 nmap <leader>sw :silent :w !sudo tee % > /dev/null<cr>:edit!<cr>
 
 " map ctrl-v to vsplit and ctrl-s to split
-map <C-v> :vsplit<cr>
+" map <C-v> :vsplit<cr> " stupid idea, disables visual block mode
 map <C-s> :split<cr>
 
 " map space to search(/), and ctrl-space to backwards search(?)
