@@ -192,6 +192,12 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " cd into the directory of our buffer(sets CWD)
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
+" shortcut to build ctags
+map <C-F11> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+" look for tags recursively
+set tags=./tags;/
+
 " Return to last edit position when opening a file (I want this!)
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
