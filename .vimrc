@@ -121,6 +121,94 @@ set smartindent
 set wrap "Wrap long lines!(soft)
 
 " -------------------------------
+" Plugins
+" -------------------------------
+
+" required for vundle
+filetype off
+
+" use vundle to manage bundles/plugins.
+" do this before setting the colorscheme
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"Vundle - Plugin Manager
+Bundle 'gmarik/vundle' 
+
+"Library needed for some other scripts
+Bundle 'L9'
+
+"fuzzy finder for files, buffers and tags.
+Bundle 'FuzzyFinder'
+
+"some colorschemes
+Bundle 'altercation/vim-colors-solarized'
+
+Bundle 'morhetz/gruvbox'
+"rainbow parentheses
+Bundle 'oblitum/rainbow'
+
+"vim easymotion - TODO investigate
+Bundle 'Lokaltog/vim-easymotion'
+
+"syntax highlighting and some things for scala files
+Bundle 'derekwyatt/vim-scala'
+
+"show 'Match x of y' when searching
+Bundle 'henrik/vim-indexed-search'
+
+"GUndo script, presents a graphical representation of the vim undo tree
+Bundle 'sjl/gundo.vim'
+
+"zoom in a window, 'minimzing' all others. using again toggles back.
+Bundle 'vim-scripts/ZoomWin'
+
+"easy way to switch to a buffer, or delet a buffer/tab.
+Bundle 'jeetsukumaran/vim-buffergator'
+
+"file browser
+Bundle 'scrooloose/nerdtree'
+
+"annotations
+Bundle 'scrooloose/syntastic'
+
+"majutsushi's tagbar
+Bundle 'majutsushi/tagbar'
+
+"'vim plugin so good its criminal'
+Bundle 'tpope/vim-fugitive'
+
+"vim dispatch, run commands in background
+Bundle 'tpope/vim-dispatch'
+
+"vimproc & vimshell
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+
+"vimside bundles
+"Bundle 'megaannum/self'
+"Bundle 'megaannum/forms' 
+"Bundle 'megaannum/vimside'
+
+"GLSL highlighting
+Bundle 'tikhomirov/vim-glsl'
+
+"HLSL highlighting
+Bundle 'beyondmarc/hlsl.vim'
+
+"markdown filetype and syntax
+Bundle 'tpope/vim-markdown'
+
+"YCM, best autocompletion? ohhh yes!
+Bundle 'Valloric/YouCompleteMe'
+
+"extended C++ syntax highlighting
+Bundle 'octol/vim-cpp-enhanced-highlight'
+
+"color highlighting for css
+Bundle 'ap/vim-css-color'
+
+" -------------------------------
 " Functions
 " -------------------------------
 function! Browser()
@@ -207,101 +295,34 @@ map 0 ^
 " this messes with C-b for page down ;(
 "map <C-b> :call Browser ()<cr>
 
-" required for vundle
-filetype off
-
-" use vundle to manage bundles/plugins.
-" do this before setting the colorscheme
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
 " ------------------------------------------------------------------------------------------------------------------
 " vim-scripts & bundles
 " ------------------------------------------------------------------------------------------------------------------
-Bundle 'L9'
 
-" fuzzy finder for files, buffers and tags.
-Bundle 'FuzzyFinder'
 nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>f :FufFile **/<CR>
 nnoremap <leader>tt :FufTag<CR>
 
-" some colorschemes
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'morhetz/gruvbox'
-
-" rainbow parentheses
-Bundle 'oblitum/rainbow'
-
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'derekwyatt/vim-scala'
-
-" show 'Match x of y' when searching
-Bundle 'henrik/vim-indexed-search'
-
-" GUndo script, presents a graphical representation of the vim undo tree
-Bundle 'sjl/gundo.vim'
 nnoremap <silent> <F5> :GundoToggle<CR>
 let g:gundo_close_on_revert=1
 
-" zoom in a window, 'minimzing' all others. using again toggles back.
-Bundle 'vim-scripts/ZoomWin'
 map <leader>o <C-W>o
 
-" easy way to switch to a buffer, or delet a buffer/tab.
-Bundle 'jeetsukumaran/vim-buffergator'
 nnoremap <silent> <F4> :BuffergatorToggle<CR>
 nnoremap <silent> <F3> :BuffergatorTabsToggle<CR>
 
-" file browser
-Bundle 'scrooloose/nerdtree'
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" annotations
-Bundle 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list=1
 
-" majutsushi's tagbar
-Bundle 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
-" 'vim plugin so good its criminal'
-Bundle 'tpope/vim-fugitive'
-
-" vim dispatch, run commands in background
-Bundle 'tpope/vim-dispatch'
-
-" vimside bundles
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-"Bundle 'megaannum/self'
-"Bundle 'megaannum/forms'
-"Bundle 'megaannum/vimside'
-
-" GLSL&HLSL highlighting
-Bundle 'tikhomirov/vim-glsl'
-Bundle 'beyondmarc/hlsl.vim'
-
-" markdown filetype and syntax
-Bundle 'tpope/vim-markdown'
-
-" YCM, best autocompletion? ohhh yes!
-" see end of file for globlist
-Bundle 'Valloric/YouCompleteMe'
 let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
 let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
 nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" extended C++ syntax highlighting
-Bundle 'octol/vim-cpp-enhanced-highlight'
-
-" color highlighting for css
-Bundle 'ap/vim-css-color'
 
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
