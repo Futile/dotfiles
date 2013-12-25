@@ -284,25 +284,33 @@ set viminfo^=%
 " vim-scripts & bundles
 " ------------------------------------------------------------------------------------------------------------------
 
+" FuzzyFinder
 nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>f :FufFile **/<CR>
 nnoremap <leader>tt :FufTag<CR>
 
+" Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
 let g:gundo_close_on_revert=1
 
+" only-window, toggleable
 map <leader>o <C-W>o
 
+" Buffergator
 nnoremap <silent> <F4> :BuffergatorToggle<CR>
 
+" NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" Syntastic
 let g:syntastic_always_populate_loc_list=1
 
+" Tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" YouCompleteMe
 let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
 let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
