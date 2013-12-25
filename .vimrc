@@ -234,14 +234,6 @@ nmap <leader>x :x<cr>
 " Easily save files opened as a user with sudo
 nmap <leader>sw :silent :w !sudo tee % > /dev/null<cr>:edit!<cr>
 
-" map ctrl-v to vsplit and ctrl-s to split
-" map <C-v> :vsplit<cr> " stupid idea, disables visual block mode
-map <C-s> :split<cr>
-
-" map space to search(/), and ctrl-space to backwards search(?)
-"map <space> /
-"map <C-@> ?
-
 " Smart way to move between windows, adjusted for neo!
 " in insert mode
 imap ∫ <C-o><C-W>h
@@ -265,7 +257,7 @@ map ℂ :tabnext<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<cr>
+"map <leader>tm :tabmove<cr>
 
 " Open new tabs in the current buffer's path
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
@@ -288,13 +280,6 @@ autocmd BufReadPost *
 " viminfo settings; remember open buffers on close
 set viminfo^=%
 
-" maybe i will keep this(0 moves to first non-blank character)
-map 0 ^
-
-" Open browser on url in line
-" this messes with C-b for page down ;(
-"map <C-b> :call Browser ()<cr>
-
 " ------------------------------------------------------------------------------------------------------------------
 " vim-scripts & bundles
 " ------------------------------------------------------------------------------------------------------------------
@@ -309,7 +294,6 @@ let g:gundo_close_on_revert=1
 map <leader>o <C-W>o
 
 nnoremap <silent> <F4> :BuffergatorToggle<CR>
-nnoremap <silent> <F3> :BuffergatorTabsToggle<CR>
 
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
