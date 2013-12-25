@@ -333,6 +333,8 @@ if has("gui_running")
     set guioptions+=c "simple dialogs in commandline instead of popup windows
     set guioptions+=i "show icon
 "default is: aegimrLtT
+
+    set guifont=Inconsolata\ 10
 endif
 
 " DON'T save global options in session file(so changes to .vimrc take effect)
