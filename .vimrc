@@ -143,8 +143,9 @@ Bundle 'FuzzyFinder'
 
 "some colorschemes
 Bundle 'altercation/vim-colors-solarized'
-
 Bundle 'morhetz/gruvbox'
+Bundle 'w0ng/vim-hybrid'
+
 "rainbow parentheses
 Bundle 'oblitum/rainbow'
 
