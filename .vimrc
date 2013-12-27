@@ -138,8 +138,9 @@ Bundle 'gmarik/vundle'
 "Library needed for some other scripts
 Bundle 'L9'
 
-"fuzzy finder for files, buffers and tags.
-Bundle 'FuzzyFinder'
+"Unite.vim and tags
+Bundle 'Shougo/unite.vim'
+Bundle 'tsukkee/unite-tag'
 
 "some colorschemes
 Bundle 'altercation/vim-colors-solarized'
@@ -284,11 +285,6 @@ set viminfo^=%
 " ------------------------------------------------------------------------------------------------------------------
 " vim-scripts & bundles
 " ------------------------------------------------------------------------------------------------------------------
-
-" FuzzyFinder
-nnoremap <leader>b :FufBuffer<CR>
-nnoremap <leader>f :FufFile **/<CR>
-nnoremap <leader>tt :FufTag<CR>
 
 " Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
