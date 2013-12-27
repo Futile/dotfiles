@@ -138,6 +138,9 @@ Bundle 'gmarik/vundle'
 "Library needed for some other scripts
 Bundle 'L9'
 
+"vimproc, include early for other scripts
+Bundle 'Shougo/vimproc'
+
 "Unite.vim and tags
 Bundle 'Shougo/unite.vim'
 Bundle 'tsukkee/unite-tag'
@@ -183,8 +186,7 @@ Bundle 'tpope/vim-fugitive'
 "vim dispatch, run commands in background
 Bundle 'tpope/vim-dispatch'
 
-"vimproc & vimshell
-Bundle 'Shougo/vimproc'
+"vimshell
 Bundle 'Shougo/vimshell'
 
 "vimside bundles
@@ -285,6 +287,10 @@ set viminfo^=%
 " ------------------------------------------------------------------------------------------------------------------
 " vim-scripts & bundles
 " ------------------------------------------------------------------------------------------------------------------
+
+" Unite.vim
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>tt :Unite -buffer-name=tags -start-insert tag<CR>
 
 " Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
