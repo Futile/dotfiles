@@ -291,13 +291,31 @@ set viminfo^=%
 " vim-scripts & bundles
 " ------------------------------------------------------------------------------------------------------------------
 
-" Unite.vim
+"*** Unite.vim ***
+" fuzzy matcher
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>tt :Unite -buffer-name=tags -start-insert tag<CR>
-nnoremap <leader>f :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap <leader>b :Unite -no-split -buffer-name=buffers -start-insert buffer<cr>
 
-" Gundo
+" start in insert mode by default
+let g:unite_enable_start_insert = 1
+
+" key bindings
+nnoremap <leader>tt :Unite -buffer-name=tags tag<cr>
+nnoremap <leader>f :Unite -no-split -buffer-name=files file_rec/async<cr>
+nnoremap <leader>b :Unite -buffer-name=buffers -no-start-insert buffer<cr>
+nnoremap <leader>/ :Unite -buffer-name=grep grep:.<cr>
+
+" Use ag for grep
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
+" max search candidates (we want everything!)
+let g:unite_source_file_rec_max_cache_files = 0
+call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 0)
+
+"*** Gundo ***
 nnoremap <silent> <F5> :GundoToggle<CR>
 let g:gundo_close_on_revert=1
 
