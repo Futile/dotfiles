@@ -291,6 +291,8 @@ set viminfo^=%
 " Unite.vim
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <leader>tt :Unite -buffer-name=tags -start-insert tag<CR>
+nnoremap <leader>f :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+nnoremap <leader>b :Unite -no-split -buffer-name=buffers -start-insert buffer<cr>
 
 " Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
