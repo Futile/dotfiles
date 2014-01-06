@@ -138,6 +138,9 @@ Bundle 'gmarik/vundle'
 "Library needed for some other scripts
 Bundle 'L9'
 
+"Faster than ack
+Bundle 'rking/ag.vim'
+
 "vimproc, include early for other scripts
 Bundle 'Shougo/vimproc'
 
