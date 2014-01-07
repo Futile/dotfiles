@@ -215,6 +215,9 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 "color highlighting for css
 Bundle 'ap/vim-css-color'
 
+"lightline statusline
+Bundle 'itchyny/lightline.vim'
+
 "disable powerline
 let g:powerline_loaded = 1
 
@@ -344,6 +347,31 @@ let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
 let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
 nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" lightline
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'active': {
+    \   'left': [ [ 'mode' ],
+    \             [ 'fugitive', 'filename' , 'current_tag'] ]
+    \ },
+    \ 'component_function': {
+    \   'fugitive': 'MyFugitive',
+    \   'current_tag': 'MyCurrentTag'
+    \ }
+    \ }
+
+function! MyFugitive()
+    return exists('*fugitive#head') ? fugitive#head(): ''
+endfunction
+
+function! MyCurrentTag()
+    return tagbar#currenttag('%s', '', 'f')
+endfunction
+
+" ------------------------------------------------------------------------------------------------------------------
+" settings & options
+" ------------------------------------------------------------------------------------------------------------------
 
 " set colorscheme AFTER loading runtimepaths using vundle, so all can be found
 if has("gui_running")
