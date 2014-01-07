@@ -357,6 +357,7 @@ let g:lightline = {
     \ },
     \ 'component_function': {
     \   'fugitive': 'MyFugitive',
+    \   'filename': 'MyFilename',
     \   'current_tag': 'MyCurrentTag'
     \ }
     \ }
@@ -367,6 +368,15 @@ endfunction
 
 function! MyCurrentTag()
     return tagbar#currenttag('%s', '', 'f')
+endfunction
+
+function! MyFilename()
+  let fname = expand('%')
+  return fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != fname ? fname : '[No Name]')
 endfunction
 
 " ------------------------------------------------------------------------------------------------------------------
