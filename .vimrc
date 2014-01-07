@@ -333,7 +333,7 @@ nnoremap <silent> <F4> :BuffergatorToggle<CR>
 
 " NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Syntastic
