@@ -270,7 +270,7 @@ map ℂ :tabnext<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-"map <leader>tm :tabmove<cr>
+map <leader>tm :tabmove<cr>
 
 " Open new tabs in the current buffer's path
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
