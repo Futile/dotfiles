@@ -215,6 +215,9 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 "color highlighting for css
 Bundle 'ap/vim-css-color'
 
+"disable powerline
+let g:powerline_loaded = 1
+
 " -------------------------------
 " Functions
 " -------------------------------
