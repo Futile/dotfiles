@@ -382,46 +382,50 @@ function! MyCurrentTag()
 endfunction
 
 function! MyFilename()
-  if !exists('b:git_modified')
-      let b:git_modified = ''
-  endif
   let fname = expand('%')
   return fname == '__Tagbar__' ? g:lightline.fname :
         \ fname =~ '__Gundo\|NERD_tree' ? '' :
         \ &ft == 'unite' ? unite#get_status_string() :
         \ &ft == 'vimshell' ? vimshell#get_status_string() :
         \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != b:git_modified ? ' ' . b:git_modified : '') .
+        \ ('' != MyGitModified() ? ' ' . MyGitModified() : '') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
 "        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
 endfunction
 
 function! MyGitModified()
-    let full_path = expand('%:p')
-    let git_dir = fugitive#extract_git_dir(full_path)
-    if git_dir == ""
-        return ''
+    if !exists('b:git_modified')
+        let b:git_modified = ''
     endif
-    let work_dir = fnamemodify(git_dir, ':h')
-    let status = system("git --git-dir=" . shellescape(git_dir) . " --work-tree="
-                \ . shellescape(work_dir) . " status --porcelain "
-                \ . shellescape(full_path))
-    if status == ''
-        return ''
-    endif
-    return split(status)[0]
+    return b:git_modified
 endfunction
 
 function! UpdateGitModified()
     if !exists('*fugitive#head')
         return
     endif
-    let b:git_modified = MyGitModified()
+    let full_path = expand('%:p')
+    let git_dir = fugitive#extract_git_dir(full_path)
+    let work_dir = fnamemodify(git_dir, ':h')
+    let status = system("git --git-dir=" . shellescape(git_dir) . " --work-tree="
+                \ . shellescape(work_dir) . " status --porcelain "
+                \ . shellescape(full_path))
+    if status == ''
+        let b:git_modified = ''
+    else
+        let b:git_modified = split(status)[0]
+    endif
 endfunction
 
-augroup buf_post
+augroup git_modified
     autocmd!
     autocmd BufWritePost * call UpdateGitModified()
+    autocmd WinEnter * call UpdateGitModified()
+    autocmd WinLeave * call UpdateGitModified()
+augroup END
+
+augroup misc
+    autocmd!
     autocmd BufReadPost *    " Return to last edit position when opening a file (I want this!)
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
