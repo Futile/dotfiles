@@ -378,6 +378,7 @@ function! MyFugitive()
     if !exists('*fugitive#head')
         return ''
     endif
+    return fugitive#head()
     let git_modified = MyGitModified()
     return fugitive#head() . (git_modified != '' ? ' ' . git_modified : '')
 endfunction
@@ -395,6 +396,7 @@ function! MyFilename()
         \ ('' != fname ? fname : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
 "        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+"        \ ('' != MyGitModified() ? ' ' . MyGitModified() : '') .
 endfunction
 
 function! MyGitModified()
