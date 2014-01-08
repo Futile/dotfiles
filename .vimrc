@@ -284,12 +284,6 @@ map <C-F11> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " look for tags recursively
 set tags=./tags;/
 
-" Return to last edit position when opening a file (I want this!)
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
 " viminfo settings; remember open buffers on close
 set viminfo^=%
 
@@ -333,8 +327,10 @@ nnoremap <silent> <F4> :BuffergatorToggle<CR>
 
 " NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
-"autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup nerdtree
+    "autocmd vimenter * if !argc() | NERDTree | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
@@ -379,8 +375,6 @@ function! MyFugitive()
         return ''
     endif
     return fugitive#head()
-    let git_modified = MyGitModified()
-    return fugitive#head() . (git_modified != '' ? ' ' . git_modified : '')
 endfunction
 
 function! MyCurrentTag()
@@ -388,22 +382,25 @@ function! MyCurrentTag()
 endfunction
 
 function! MyFilename()
+  if !exists('b:git_modified')
+      let b:git_modified = ''
+  endif
   let fname = expand('%')
   return fname == '__Tagbar__' ? g:lightline.fname :
         \ fname =~ '__Gundo\|NERD_tree' ? '' :
         \ &ft == 'unite' ? unite#get_status_string() :
         \ &ft == 'vimshell' ? vimshell#get_status_string() :
         \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != b:git_modified ? ' ' . b:git_modified : '') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
 "        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-"        \ ('' != MyGitModified() ? ' ' . MyGitModified() : '') .
 endfunction
 
 function! MyGitModified()
     let full_path = expand('%:p')
     let git_dir = fugitive#extract_git_dir(full_path)
     if git_dir == ""
-        return
+        return ''
     endif
     let work_dir = fnamemodify(git_dir, ':h')
     let status = system("git --git-dir=" . shellescape(git_dir) . " --work-tree="
@@ -414,6 +411,22 @@ function! MyGitModified()
     endif
     return split(status)[0]
 endfunction
+
+function! UpdateGitModified()
+    if !exists('*fugitive#head')
+        return
+    endif
+    let b:git_modified = MyGitModified()
+endfunction
+
+augroup buf_post
+    autocmd!
+    autocmd BufWritePost * call UpdateGitModified()
+    autocmd BufReadPost *    " Return to last edit position when opening a file (I want this!)
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+augroup END
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
 
