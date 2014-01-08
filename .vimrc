@@ -353,14 +353,26 @@ let g:lightline = {
     \ 'colorscheme': 'jellybeans',
     \ 'active': {
     \   'left': [ [ 'mode' ],
-    \             [ 'fugitive', 'filename' , 'current_tag'] ]
+    \             [ 'fugitive', 'readonly', 'filename', 'current_tag'] ]
     \ },
     \ 'component_function': {
     \   'fugitive': 'MyFugitive',
+    \   'modified': 'MyModified',
     \   'filename': 'MyFilename',
-    \   'current_tag': 'MyCurrentTag'
+    \   'readonly': 'MyReadonly',
+    \   'current_tag': 'MyCurrentTag',
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '|', 'right': '|' }
     \ }
-    \ }
+
+function! MyModified()
+    return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+    return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
 
 function! MyFugitive()
     return exists('*fugitive#head') ? fugitive#head(): ''
@@ -376,7 +388,9 @@ function! MyFilename()
         \ fname =~ '__Gundo\|NERD_tree' ? '' :
         \ &ft == 'unite' ? unite#get_status_string() :
         \ &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ ('' != fname ? fname : '[No Name]')
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+"        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
 endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
