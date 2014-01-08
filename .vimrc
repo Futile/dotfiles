@@ -340,7 +340,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:syntastic_always_populate_loc_list=1
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <silent> <F8> :TagbarToggle<CR>
 
 " YouCompleteMe
 let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
