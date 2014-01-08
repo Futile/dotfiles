@@ -375,7 +375,11 @@ function! MyReadonly()
 endfunction
 
 function! MyFugitive()
-    return exists('*fugitive#head') ? fugitive#head(): ''
+    if !exists('*fugitive#head')
+        return ''
+    endif
+    let git_modified = MyGitModified()
+    return fugitive#head() . (git_modified != '' ? ' ' . git_modified : '')
 endfunction
 
 function! MyCurrentTag()
@@ -391,6 +395,22 @@ function! MyFilename()
         \ ('' != fname ? fname : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
 "        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+endfunction
+
+function! MyGitModified()
+    let full_path = expand('%:p')
+    let git_dir = fugitive#extract_git_dir(full_path)
+    if git_dir == ""
+        return
+    endif
+    let work_dir = fnamemodify(git_dir, ':h')
+    let status = system("git --git-dir=" . shellescape(git_dir) . " --work-tree="
+                \ . shellescape(work_dir) . " status --porcelain "
+                \ . shellescape(full_path))
+    if status == ''
+        return ''
+    endif
+    return split(status)[0]
 endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
