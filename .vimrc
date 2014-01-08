@@ -153,6 +153,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'morhetz/gruvbox'
 Bundle 'w0ng/vim-hybrid'
 
+"lightline statusline
+Bundle 'itchyny/lightline.vim'
+
 "rainbow parentheses
 Bundle 'oblitum/rainbow'
 
@@ -214,9 +217,6 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 
 "color highlighting for css
 Bundle 'ap/vim-css-color'
-
-"lightline statusline
-Bundle 'itchyny/lightline.vim'
 
 "disable powerline
 let g:powerline_loaded = 1
@@ -377,6 +377,13 @@ function! MyFilename()
         \ &ft == 'unite' ? unite#get_status_string() :
         \ &ft == 'vimshell' ? vimshell#get_status_string() :
         \ ('' != fname ? fname : '[No Name]')
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+    let g:lightline.fname = a:fname
+  return lightline#statusline(0)
 endfunction
 
 " ------------------------------------------------------------------------------------------------------------------
