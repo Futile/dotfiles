@@ -218,6 +218,9 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 "color highlighting for css
 Bundle 'ap/vim-css-color'
 
+"autoformatting
+Bundle 'Chiel92/vim-autoformat'
+
 "disable powerline
 let g:powerline_loaded = 1
 
@@ -430,6 +433,7 @@ augroup misc
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+    autocmd BufWritePost *.hh,*.cc exec 'Autoformat'
 augroup END
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
@@ -467,4 +471,4 @@ endif
 set ssop-=options
 
 " enable filetype detection/auto indentation
-filetype indent plugin on
+filetype plugin indent on
