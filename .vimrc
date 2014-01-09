@@ -109,7 +109,7 @@ set softtabstop=4
 set tabstop=8 "to preserve formatting i think
 set expandtab
 set smarttab "be smart about tabs!
-set cindent "indentation for c-family files
+"set cindent "indentation for c-family files
 
 " Also show invisible characters
 set list
@@ -117,7 +117,7 @@ set listchars=tab:>·,trail:·
 
 " Automatic indentation, if the filetype is not known
 set autoindent
-set smartindent
+"set smartindent
 set wrap "Wrap long lines!(soft)
 
 " -------------------------------
