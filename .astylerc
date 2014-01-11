@@ -1,4 +1,4 @@
-style=allman #broken brackets by default, so we can define where to attach
+style=kr #broken brackets by default, so we can define where to attach
 
 indent=spaces=4 #indent using 4 spaces
 
@@ -13,3 +13,5 @@ attach-inlines #attach brackets to inline function definitions
 indent-col1-comments #indent comments which start on the first line
 
 indent-namespaces #indent namespaces
+
+suffix=none #do not retain backups

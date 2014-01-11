@@ -35,6 +35,7 @@ set hidden
 
 " no backups(but we keep swapfiles)
 set nobackup
+set dir=~/tmp//
 
 " Better command-line completion
 set wildmenu
@@ -433,8 +434,18 @@ augroup misc
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
-    autocmd BufWritePost *.hh,*.cc exec 'Autoformat'
+    autocmd BufEnter *.hh,*.cc,*.h,*.cpp let g:formatprg_args_expr_cpp = '"--mode=c"'
+    " apply autoformat and delete trailing empty line
+    autocmd BufWritePost *.hh,*.cc,*.h,*.cpp
+    \ exec 'Autoformat' |
+    \ call TrimEmptyLines()
 augroup END
+
+function! TrimEmptyLines()
+    let save_cursor = getpos(".")
+    :silent! %s#\($\n\s*\)\+\%$##
+    call setpos('.', save_cursor)
+endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
 
