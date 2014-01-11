@@ -226,6 +226,9 @@ Bundle 'ap/vim-css-color'
 "autoformatting
 Bundle 'Chiel92/vim-autoformat'
 
+"delete/move/sudowrite etc for unix
+Bundle 'tpope/vim-eunuch'
+
 "disable powerline
 let g:powerline_loaded = 1
 
