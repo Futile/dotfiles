@@ -121,6 +121,10 @@ set autoindent
 "set smartindent
 set wrap "Wrap long lines!(soft)
 
+" also look for a .vimrc in the current directory, safe commands only
+set exrc
+set secure
+
 " -------------------------------
 " Plugins
 " -------------------------------
