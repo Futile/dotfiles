@@ -177,7 +177,7 @@ Bundle 'henrik/vim-indexed-search'
 Bundle 'sjl/gundo.vim'
 
 "zoom in a window, 'minimzing' all others. using again toggles back.
-Bundle 'vim-scripts/ZoomWin'
+Bundle 'regedarek/ZoomWin'
 
 "easy way to switch to a buffer, or delet a buffer/tab.
 Bundle 'jeetsukumaran/vim-buffergator'
