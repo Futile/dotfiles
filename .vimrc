@@ -229,6 +229,9 @@ Bundle 'Chiel92/vim-autoformat'
 "delete/move/sudowrite etc for unix
 Bundle 'tpope/vim-eunuch'
 
+"gitgutter, show changed lines
+Bundle 'airblade/vim-gitgutter'
+
 "disable powerline
 let g:powerline_loaded = 1
 
