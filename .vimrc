@@ -255,9 +255,6 @@ nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>x :x<cr>
 
-" Easily save files opened as a user with sudo
-nmap <leader>sw :silent :w !sudo tee % > /dev/null<cr>:edit!<cr>
-
 " Smart way to move between windows, adjusted for neo!
 " in insert mode
 imap ∫ <C-o><C-W>h
