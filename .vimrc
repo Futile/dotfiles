@@ -186,7 +186,7 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'scrooloose/nerdtree'
 
 "annotations
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 
 "majutsushi's tagbar
 Bundle 'majutsushi/tagbar'
