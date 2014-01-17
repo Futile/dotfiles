@@ -232,6 +232,12 @@ Bundle 'tpope/vim-eunuch'
 "gitgutter, show changed lines
 Bundle 'airblade/vim-gitgutter'
 
+"allows to switch between header and source file
+Bundle 'derekwyatt/vim-fswitch'
+
+"automatically generate source file from header file(updates!)
+Bundle 'derekwyatt/vim-protodef'
+
 "disable powerline
 let g:powerline_loaded = 1
 
@@ -355,6 +361,9 @@ let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
 let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
 nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" FSwitch
+nnoremap <leader>l :FSHere<CR>
 
 " lightline
 let g:lightline = {
@@ -488,6 +497,9 @@ endif
 
 " DON'T save global options in session file(so changes to .vimrc take effect)
 set ssop-=options
+
+" save tabpages though
+set ssop+=tabpages
 
 " enable filetype detection/auto indentation
 filetype plugin indent on
