@@ -451,7 +451,9 @@ augroup misc
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
     autocmd BufEnter *.hh,*.cc,*.h,*.cpp let g:formatprg_args_expr_cpp = '"--mode=c"'
+
     " apply autoformat and delete trailing empty line
     autocmd BufWritePost *.hh,*.cc,*.h,*.cpp
     \ exec 'Autoformat' |
@@ -500,6 +502,11 @@ set ssop-=options
 
 " save tabpages though
 set ssop+=tabpages
+
+augroup SyntaxAddons
+    autocmd!
+    autocmd Syntax {cpp,c} runtime syntax/doxygen.vim
+augroup END
 
 " enable filetype detection/auto indentation
 filetype plugin indent on
