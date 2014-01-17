@@ -350,8 +350,8 @@ augroup nerdtree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 augroup END
 
-" Syntastic
-let g:syntastic_always_populate_loc_list=1
+" Syntastic - currently not enabled
+"let g:syntastic_always_populate_loc_list=1
 
 " Tagbar
 nmap <silent> <F8> :TagbarToggle<CR>
