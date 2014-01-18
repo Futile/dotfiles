@@ -243,6 +243,9 @@ Bundle 'derekwyatt/vim-protodef'
 "automatically-close-brackets-magic
 Bundle 'Raimondi/delimitMate'
 
+"automatic toggling of comments
+Bundle 'scrooloose/nerdcommenter'
+
 "disable powerline
 let g:powerline_loaded = 1
 
