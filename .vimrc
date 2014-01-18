@@ -157,6 +157,8 @@ Bundle 'tsukkee/unite-tag'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'morhetz/gruvbox'
 Bundle 'w0ng/vim-hybrid'
+Bundle 'jnurmine/Zenburn'
+Bundle 'vim-scripts/wombat256.vim'
 
 "lightline statusline
 Bundle 'itchyny/lightline.vim'
@@ -481,7 +483,7 @@ endfunction
 if has("gui_running")
     colorscheme jellybeans "gvim
 elseif $DISPLAY != ''
-    colorscheme jellybeans "terminal in X
+    colorscheme zenburn "terminal in X
 else
     colorscheme default "terminal without X
 endif
