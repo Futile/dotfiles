@@ -240,6 +240,9 @@ Bundle 'derekwyatt/vim-fswitch'
 "automatically generate source file from header file(updates!)
 Bundle 'derekwyatt/vim-protodef'
 
+"automatically-close-brackets-magic
+Bundle 'Raimondi/delimitMate'
+
 "disable powerline
 let g:powerline_loaded = 1
 
@@ -367,6 +370,10 @@ nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " FSwitch
 nnoremap <leader>l :FSHere<CR>
+
+" delimitMate
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
 
 " lightline
 let g:lightline = {
