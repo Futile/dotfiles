@@ -4,6 +4,9 @@ alias startx='startx &> ~/.xlog'
 # alias for sudoedit
 alias svim='sudoedit'
 
+# alias to edit my vimrc
+alias vv='vim ~/.dotfiles/.vimrc'
+
 # prevent C-s from freezing my terminal(flow control, it locks the scrolling, so to say)
 stty ixoff -ixon
 
