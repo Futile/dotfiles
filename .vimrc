@@ -362,6 +362,7 @@ nmap <silent> <F8> :TagbarToggle<CR>
 let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
 let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
+let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " FSwitch
