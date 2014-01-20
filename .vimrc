@@ -194,8 +194,9 @@ Bundle 'scrooloose/nerdtree'
 "majutsushi's tagbar
 Bundle 'majutsushi/tagbar'
 
-"'vim plugin so good its criminal'
+"'vim plugin so good its criminal' and runtime files vor vim
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
 
 "vim dispatch, run commands in background
 Bundle 'tpope/vim-dispatch'
