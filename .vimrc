@@ -250,6 +250,10 @@ Bundle 'Raimondi/delimitMate'
 "automatic toggling of comments
 Bundle 'scrooloose/nerdcommenter'
 
+"seek motion
+Bundle 'justinmk/vim-sneak'
+
+
 "disable powerline
 let g:powerline_loaded = 1
 
