@@ -160,6 +160,7 @@ Bundle 'w0ng/vim-hybrid'
 Bundle 'jnurmine/Zenburn'
 Bundle 'vim-scripts/wombat256.vim'
 Bundle 'xoria256.vim'
+Bundle 'chriskempson/vim-tomorrow-theme'
 
 "lightline statusline
 Bundle 'itchyny/lightline.vim'
