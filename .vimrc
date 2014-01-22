@@ -161,6 +161,7 @@ Bundle 'jnurmine/Zenburn'
 Bundle 'vim-scripts/wombat256.vim'
 Bundle 'xoria256.vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'chriskempson/base16-vim'
 
 "lightline statusline
 Bundle 'itchyny/lightline.vim'
@@ -497,7 +498,7 @@ endfunction
 if has("gui_running")
     colorscheme jellybeans "gvim
 elseif $DISPLAY != ''
-    colorscheme xoria256 "terminal in X
+    colorscheme Tomorrow-Night "terminal in X
 else
     colorscheme default "terminal without X
 endif
