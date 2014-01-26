@@ -253,7 +253,6 @@ Bundle 'scrooloose/nerdcommenter'
 "seek motion
 Bundle 'justinmk/vim-sneak'
 
-
 "disable powerline
 let g:powerline_loaded = 1
 
@@ -448,6 +447,9 @@ function! UpdateGitModified()
     endif
     let full_path = expand('%:p')
     let git_dir = fugitive#extract_git_dir(full_path)
+    if empty(git_dir)
+        return
+    endif
     let work_dir = fnamemodify(git_dir, ':h')
     let status = system("git --git-dir=" . shellescape(git_dir) . " --work-tree="
                 \ . shellescape(work_dir) . " status --porcelain "
