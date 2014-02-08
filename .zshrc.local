@@ -7,6 +7,9 @@ alias svim='sudoedit'
 # alias to edit my vimrc
 alias vv='vim ~/.dotfiles/.vimrc'
 
+# startx with 2 monitors
+alias dualx='~/.dotfiles/dualx.sh'
+
 # prevent C-s from freezing my terminal(flow control, it locks the scrolling, so to say)
 stty ixoff -ixon
 
