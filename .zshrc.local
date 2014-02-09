@@ -28,5 +28,15 @@ export PYTHONPATH=/usr/lib/python3.3/site-packages
 # export _JAVA_OPTIONS
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
+# export BROWSER
+export BROWSER='firefox'
+
+# XDG_CONFIG_HOME
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# window manager stuff(bspwm)
+export BSPWM_PATH="$XDG_CONFIG_HOME/bspwm"
+export BSPWM_FIFO="/tmp/bspwm.fifo"
+
 # strong powerline
 . /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
