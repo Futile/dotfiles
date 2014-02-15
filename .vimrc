@@ -107,7 +107,7 @@ set pastetoggle=<F11>
 " Indentation options
 set shiftwidth=4
 set softtabstop=4
-set tabstop=8 "to preserve formatting i think
+set tabstop=4 "to preserve formatting i think
 set expandtab
 set smarttab "be smart about tabs!
 "set cindent "indentation for c-family files
@@ -155,6 +155,7 @@ Bundle 'tsukkee/unite-tag'
 
 "some colorschemes
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'baskerville/bubblegum'
 Bundle 'morhetz/gruvbox'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'jnurmine/Zenburn'
@@ -278,6 +279,10 @@ let g:mapleader = " "
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>x :x<cr>
+
+" select last pasted text
+" see http://vim.wikia.com/wiki/Selecting_your_pasted_text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Smart way to move between windows, adjusted for neo!
 " in insert mode
@@ -504,7 +509,8 @@ endfunction
 if has("gui_running")
     colorscheme jellybeans "gvim
 elseif $DISPLAY != ''
-    colorscheme Tomorrow-Night "terminal in X
+    "colorscheme Tomorrow-Night "terminal in X
+    colorscheme bubblegum "terminal in X
 else
     colorscheme default "terminal without X
 endif
