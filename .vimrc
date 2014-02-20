@@ -254,6 +254,16 @@ Bundle 'scrooloose/nerdcommenter'
 "seek motion
 Bundle 'justinmk/vim-sneak'
 
+"wildfire
+Bundle 'gcmt/wildfire.vim'
+
+" vim-hardmode: disable up/down/left/right and hjkl
+Bundle 'wikitopian/hardmode'
+
+augroup hardmode
+    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+augroup END
+
 "disable powerline
 let g:powerline_loaded = 1
 
