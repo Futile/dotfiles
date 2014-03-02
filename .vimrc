@@ -281,6 +281,9 @@ Bundle 'blueyed/vim-diminactive'
 let g:cursorcross_mappings = 0
 Bundle 'mtth/cursorcross.vim'
 
+"vim-tmux integration
+Bundle 'benmills/vimux'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
@@ -362,6 +365,7 @@ set viminfo^=%
 "*** Unite.vim ***
 " fuzzy matcher
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 " start in insert mode by default
 let g:unite_enable_start_insert = 1
