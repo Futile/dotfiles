@@ -271,6 +271,9 @@ Bundle 'justinmk/vim-sneak'
 "wildfire
 Bundle 'gcmt/wildfire.vim'
 
+"matchit already installed, just enable it
+runtime macros/matchit.vim
+
 "disable powerline
 let g:powerline_loaded = 1
 
