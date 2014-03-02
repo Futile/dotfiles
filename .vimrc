@@ -284,6 +284,9 @@ Bundle 'mtth/cursorcross.vim'
 "vim-tmux integration
 Bundle 'benmills/vimux'
 
+"automatic absolute/relative line number toggling
+Bundle 'myusuf3/numbers.vim'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
