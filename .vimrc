@@ -271,6 +271,16 @@ Bundle 'justinmk/vim-sneak'
 "wildfire
 Bundle 'gcmt/wildfire.vim'
 
+"indent guides
+Bundle 'nathanaelkane/vim-indent-guides'
+
+"dim inactive windows automatically
+Bundle 'blueyed/vim-diminactive'
+
+"automatic cursorline/cursorcolumn handling
+let g:cursorcross_mappings = 0
+Bundle 'mtth/cursorcross.vim'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
