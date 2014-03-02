@@ -168,7 +168,14 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'itchyny/lightline.vim'
 
 "rainbow parentheses
-Bundle 'oblitum/rainbow'
+Bundle 'kien/rainbow_parentheses.vim'
+
+augroup rainbow
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+augroup END
 
 "vim easymotion - TODO investigate
 Bundle 'Lokaltog/vim-easymotion'
@@ -245,6 +252,13 @@ Bundle 'derekwyatt/vim-fswitch'
 "automatically generate source file from header file(updates!)
 Bundle 'derekwyatt/vim-protodef'
 
+" vim-hardmode: disable up/down/left/right and hjkl
+Bundle 'wikitopian/hardmode'
+
+augroup hardmode
+    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+augroup END
+
 "automatically-close-brackets-magic
 Bundle 'Raimondi/delimitMate'
 
@@ -256,13 +270,6 @@ Bundle 'justinmk/vim-sneak'
 
 "wildfire
 Bundle 'gcmt/wildfire.vim'
-
-" vim-hardmode: disable up/down/left/right and hjkl
-Bundle 'wikitopian/hardmode'
-
-augroup hardmode
-    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-augroup END
 
 "disable powerline
 let g:powerline_loaded = 1
