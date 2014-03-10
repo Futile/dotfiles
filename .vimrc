@@ -260,9 +260,9 @@ Bundle 'derekwyatt/vim-protodef'
 " vim-hardmode: disable up/down/left/right and hjkl
 Bundle 'wikitopian/hardmode'
 
-augroup hardmode
-    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-augroup END
+"augroup hardmode
+    "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"augroup END
 
 "automatically-close-brackets-magic
 Bundle 'Raimondi/delimitMate'
