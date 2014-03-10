@@ -233,6 +233,8 @@ Bundle 'tpope/vim-markdown'
 
 "YCM, best autocompletion? ohhh yes!
 Bundle 'Valloric/YouCompleteMe'
+"eclim <-> YCM interop
+let g:EclimCompletionMethod = 'omnifunc'
 
 "extended C++ syntax highlighting
 Bundle 'octol/vim-cpp-enhanced-highlight'
