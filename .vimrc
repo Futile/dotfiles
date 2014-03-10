@@ -60,7 +60,7 @@ set ignorecase
 set smartcase
 
 " Show matching brackets, blink for 2/10 of a second
-set showmatch 
+set showmatch
 set mat=2
 
 " Allow backspacing over autoindent, line breaks and start of insert action
@@ -165,6 +165,7 @@ Bundle 'vim-scripts/wombat256.vim'
 Bundle 'xoria256.vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'chriskempson/base16-vim'
+Bundle 'industry.vim'
 
 "lightline statusline
 Bundle 'itchyny/lightline.vim'
