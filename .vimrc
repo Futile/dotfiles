@@ -45,7 +45,9 @@ set wildmode=list:longest,full "and some stuff for it
 set showcmd
 
 " No highlighting when searching(yess!)
-set nohlsearch
+"set nohlsearch
+set hlsearch
+nnoremap <C-S> :nohlsearch<CR>
 
 " Search acts like modern browsers
 set incsearch
