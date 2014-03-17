@@ -283,8 +283,9 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'blueyed/vim-diminactive'
 
 "automatic cursorline/cursorcolumn handling
-let g:cursorcross_mappings = 0
-Bundle 'mtth/cursorcross.vim'
+"DISABLED BECAUSE IT MESSED EVERYTHING UP WHEN HITTING ENTER IN INSERT MODE
+"let g:cursorcross_mappings = 0
+"Bundle 'mtth/cursorcross.vim'
 
 "vim-tmux integration
 Bundle 'benmills/vimux'
