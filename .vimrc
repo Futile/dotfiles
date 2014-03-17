@@ -562,7 +562,8 @@ if has("gui_running")
     colorscheme jellybeans "gvim
 elseif $DISPLAY != ''
     "colorscheme Tomorrow-Night "terminal in X
-    colorscheme bubblegum "terminal in X
+    "colorscheme bubblegum "terminal in X
+    colorscheme wombat256mod "terminal in X
 else
     colorscheme default "terminal without X
 endif
