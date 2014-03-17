@@ -526,6 +526,12 @@ augroup misc
     \   exe "normal! g`\"" |
     \ endif
 
+    " git commit msg's always on the first line though, pls
+    autocmd BufReadPost *
+    \ if @% == '.git/COMMIT_EDITMSG' |
+    \   exe "normal gg" |
+    \ endif
+
     autocmd BufEnter *.hh,*.cc,*.h,*.cpp let g:formatprg_args_expr_cpp = '"--mode=c"'
 
     " apply autoformat and delete trailing empty line
