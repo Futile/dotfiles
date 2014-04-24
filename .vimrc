@@ -280,7 +280,7 @@ Bundle 'gcmt/wildfire.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 "dim inactive windows automatically
-Bundle 'blueyed/vim-diminactive'
+"Bundle 'blueyed/vim-diminactive'
 
 "automatic cursorline/cursorcolumn handling
 "DISABLED BECAUSE IT MESSED EVERYTHING UP WHEN HITTING ENTER IN INSERT MODE
