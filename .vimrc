@@ -305,6 +305,9 @@ Bundle 'tpope/vim-repeat'
 " vim-surround, text-object for surroundings, etc brackets, ", '
 Bundle 'tpope/vim-surround'
 
+" vim-abolish, mainly to try out the 'Coercion' feature, which looks nice
+Bundle 'tpope/vim-abolish'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
