@@ -96,6 +96,9 @@ set t_vb=
 " Enable mouse for all modes
 set mouse=a
 
+" Enable mouse in tmux
+set ttymouse=xterm2
+
 " Command window height is 2 lines, avoids some 'press Enter to continue' cases
 set cmdheight=2
 
