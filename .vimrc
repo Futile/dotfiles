@@ -273,9 +273,6 @@ Bundle 'scrooloose/nerdcommenter'
 "seek motion
 Bundle 'justinmk/vim-sneak'
 
-"wildfire
-Bundle 'gcmt/wildfire.vim'
-
 "indent guides
 Bundle 'nathanaelkane/vim-indent-guides'
 
