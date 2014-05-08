@@ -293,6 +293,9 @@ Bundle 'myusuf3/numbers.vim'
 ":Wipeout all buffers which are not open in a tab/window
 Bundle 'wipeout'
 
+" CoVim, yay!
+Bundle 'FredKSchott/CoVim'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
