@@ -296,6 +296,9 @@ Bundle 'wipeout'
 " CoVim, yay!
 Bundle 'FredKSchott/CoVim'
 
+" vim unimpaired
+Bundle 'tpope/vim-unimpaired'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
