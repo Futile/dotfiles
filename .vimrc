@@ -302,6 +302,9 @@ Bundle 'tpope/vim-unimpaired'
 " repeat.vim, for example for vim-unimpaired
 Bundle 'tpope/vim-repeat'
 
+" vim-surround, text-object for surroundings, etc brackets, ", '
+Bundle 'tpope/vim-surround'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
