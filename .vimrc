@@ -426,7 +426,7 @@ augroup END
 nmap <silent> <F8> :TagbarToggle<CR>
 
 " YouCompleteMe
-let g:ycm_extra_conf_globlist = ['~/gits/*','!~/*']
+let g:ycm_extra_conf_globlist = ['~/gits/*', '~/seclab/*', '!~/*']
 let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
 let g:ycm_autoclose_preview_window_after_insertion = 1
