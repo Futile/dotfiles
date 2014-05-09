@@ -271,7 +271,7 @@ Bundle 'wikitopian/hardmode'
 Bundle 'Raimondi/delimitMate'
 
 "automatic toggling of comments
-Bundle 'scrooloose/nerdcommenter'
+"Bundle 'scrooloose/nerdcommenter'
 
 "seek motion
 Bundle 'justinmk/vim-sneak'
@@ -307,6 +307,10 @@ Bundle 'tpope/vim-surround'
 
 " vim-abolish, mainly to try out the 'Coercion' feature, which looks nice
 Bundle 'tpope/vim-abolish'
+
+" commentary.vim, trying this out instead of nerdcommenter(maybe better
+" bindings, less commands)
+Bundle 'tpope/vim-commentary'
 
 "matchit already installed, just enable it
 runtime macros/matchit.vim
