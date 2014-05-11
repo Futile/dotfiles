@@ -380,8 +380,12 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " cd into the directory of our buffer(sets CWD)
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
+function! BuildTags()
+    !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .
+endfunction
+
 " shortcut to build ctags
-map <C-F11> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <C-F11> :call BuildTags()<CR>
 
 " look for tags recursively
 set tags=./tags;/
