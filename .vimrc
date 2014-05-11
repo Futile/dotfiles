@@ -312,6 +312,9 @@ Bundle 'tpope/vim-abolish'
 " bindings, less commands)
 Bundle 'tpope/vim-commentary'
 
+" vim exchange, easily exchange two regigons of text
+Bundle 'tommcdo/vim-exchange'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
