@@ -253,6 +253,8 @@ Bundle 'tpope/vim-eunuch'
 
 "gitgutter, show changed lines
 Bundle 'airblade/vim-gitgutter'
+" maybe randomly appearing signs caused by gitgutter?
+let g:gitgutter_realtime = 0
 
 "allows to switch between header and source file
 Bundle 'derekwyatt/vim-fswitch'
@@ -382,6 +384,11 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " cd into the directory of our buffer(sets CWD)
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" make Y behave like D and C
+map Y y$
+" why do I need this as well?
+noremap Y y$
 
 function! BuildTags()
     !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .
