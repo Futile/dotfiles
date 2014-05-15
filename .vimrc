@@ -315,6 +315,9 @@ Bundle 'tpope/vim-commentary'
 " vim exchange, easily exchange two regigons of text
 Bundle 'tommcdo/vim-exchange'
 
+" vim-go, for go yo
+Bundle 'fatih/vim-go'
+
 "matchit already installed, just enable it
 runtime macros/matchit.vim
 
