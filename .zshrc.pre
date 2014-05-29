@@ -1,2 +1,5 @@
-# don't set the rprompt
-DONTSETRPROMPT=1
+# set the rprompt
+DONTSETRPROMPT=0
+
+# show battery status
+BATTERY=1
