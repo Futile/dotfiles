@@ -34,5 +34,11 @@ export BROWSER='firefox'
 # export GOPATH
 export GOPATH='/home/felix/go'
 
+# add go packages to path
+export PATH="$PATH:$GOPATH/bin"
+
+# add rupa-v to path
+export PATH="$PATH:/home/felix/gits/rupa-v"
+
 # strong powerline
-. /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
+# . /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
