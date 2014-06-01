@@ -119,7 +119,7 @@ set smarttab "be smart about tabs!
 
 " Also show invisible characters
 set list
-set listchars=tab:>·,trail:·
+set listchars=tab:⊳\ ,trail:·
 
 " Automatic indentation, if the filetype is not known
 set autoindent
@@ -143,38 +143,39 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 "Vundle - Plugin Manager
-Bundle 'gmarik/vundle' 
+Plugin 'gmarik/vundle' 
 
 "Library needed for some other scripts
-Bundle 'L9'
+Plugin 'L9'
 
 "Faster than ack
-Bundle 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 
 "vimproc, include early for other scripts
-Bundle 'Shougo/vimproc'
+Plugin 'Shougo/vimproc'
 
 "Unite.vim and tags
-Bundle 'Shougo/unite.vim'
-Bundle 'tsukkee/unite-tag'
+Plugin 'Shougo/unite.vim'
+Plugin 'tsukkee/unite-tag'
 
 "some colorschemes
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'baskerville/bubblegum'
-Bundle 'morhetz/gruvbox'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'jnurmine/Zenburn'
-Bundle 'vim-scripts/wombat256.vim'
-Bundle 'xoria256.vim'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'chriskempson/base16-vim'
-Bundle 'industry.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'baskerville/bubblegum'
+Plugin 'morhetz/gruvbox'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'jnurmine/Zenburn'
+Plugin 'vim-scripts/wombat256.vim'
+Plugin 'xoria256.vim'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
+Plugin 'industry.vim'
+Plugin 'jonathanfilip/vim-lucius'
 
 "lightline statusline
-Bundle 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim'
 
 "rainbow parentheses
-Bundle 'kien/rainbow_parentheses.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 
 augroup rainbow
     au VimEnter * RainbowParenthesesToggle
@@ -184,141 +185,151 @@ augroup rainbow
 augroup END
 
 "vim easymotion - TODO investigate
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 "syntax highlighting and some things for scala files
-Bundle 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 
 "show 'Match x of y' when searching
-Bundle 'henrik/vim-indexed-search'
+Plugin 'henrik/vim-indexed-search'
 
 "GUndo script, presents a graphical representation of the vim undo tree
-Bundle 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'
 
 "zoom in a window, 'minimzing' all others. using again toggles back.
-Bundle 'regedarek/ZoomWin'
+Plugin 'regedarek/ZoomWin'
 
 "easy way to switch to a buffer, or delet a buffer/tab.
-Bundle 'jeetsukumaran/vim-buffergator'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 "file browser
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 "annotations
-"Bundle 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 "majutsushi's tagbar
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 
 "'vim plugin so good its criminal' and runtime files vor vim
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
 
 "vim dispatch, run commands in background
-Bundle 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch'
 
 "vimshell
-Bundle 'Shougo/vimshell'
+Plugin 'Shougo/vimshell'
 
 "vimside bundles
-"Bundle 'megaannum/self'
-"Bundle 'megaannum/forms' 
-"Bundle 'megaannum/vimside'
+"Plugin 'megaannum/self'
+"Plugin 'megaannum/forms' 
+"Plugin 'megaannum/vimside'
 
 "GLSL highlighting
-Bundle 'tikhomirov/vim-glsl'
+Plugin 'tikhomirov/vim-glsl'
 
 "HLSL highlighting
-Bundle 'beyondmarc/hlsl.vim'
+Plugin 'beyondmarc/hlsl.vim'
 
 "markdown filetype and syntax
-Bundle 'tpope/vim-markdown'
+Plugin 'tpope/vim-markdown'
 
 "YCM, best autocompletion? ohhh yes!
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "eclim <-> YCM interop
 let g:EclimCompletionMethod = 'omnifunc'
 
 "extended C++ syntax highlighting
-Bundle 'octol/vim-cpp-enhanced-highlight'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 "color highlighting for css
-Bundle 'ap/vim-css-color'
+Plugin 'ap/vim-css-color'
 
 "autoformatting
-Bundle 'Chiel92/vim-autoformat'
+Plugin 'Chiel92/vim-autoformat'
 
 "delete/move/sudowrite etc for unix
-Bundle 'tpope/vim-eunuch'
+Plugin 'tpope/vim-eunuch'
 
 "gitgutter, show changed lines
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 " maybe randomly appearing signs caused by gitgutter?
 let g:gitgutter_realtime = 0
 
 "allows to switch between header and source file
-Bundle 'derekwyatt/vim-fswitch'
+Plugin 'derekwyatt/vim-fswitch'
 
 "automatically generate source file from header file(updates!)
-Bundle 'derekwyatt/vim-protodef'
+Plugin 'derekwyatt/vim-protodef'
 
 " vim-hardmode: disable up/down/left/right and hjkl
-Bundle 'wikitopian/hardmode'
+Plugin 'wikitopian/hardmode'
 
 "augroup hardmode
     "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 "augroup END
 
 "automatically-close-brackets-magic
-Bundle 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 
 "automatic toggling of comments
-"Bundle 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdcommenter'
 
 "seek motion
-Bundle 'justinmk/vim-sneak'
+Plugin 'justinmk/vim-sneak'
 
 "indent guides
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 "automatic cursorline/cursorcolumn handling
 "DISABLED BECAUSE IT MESSED EVERYTHING UP WHEN HITTING ENTER IN INSERT MODE
 "let g:cursorcross_mappings = 0
-"Bundle 'mtth/cursorcross.vim'
+"Plugin 'mtth/cursorcross.vim'
 
 "vim-tmux integration
-Bundle 'benmills/vimux'
+Plugin 'benmills/vimux'
 
 "automatic absolute/relative line number toggling
-Bundle 'myusuf3/numbers.vim'
+Plugin 'myusuf3/numbers.vim'
 
 ":Wipeout all buffers which are not open in a tab/window
-Bundle 'wipeout'
+Plugin 'wipeout'
 
 " CoVim, yay!
-Bundle 'FredKSchott/CoVim'
+Plugin 'FredKSchott/CoVim'
 
 " vim unimpaired
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 
 " repeat.vim, for example for vim-unimpaired
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 
 " vim-surround, text-object for surroundings, etc brackets, ", '
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " vim-abolish, mainly to try out the 'Coercion' feature, which looks nice
-Bundle 'tpope/vim-abolish'
+Plugin 'tpope/vim-abolish'
 
 " commentary.vim, trying this out instead of nerdcommenter(maybe better
 " bindings, less commands)
-Bundle 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'
 
 " vim exchange, easily exchange two regigons of text
-Bundle 'tommcdo/vim-exchange'
+Plugin 'tommcdo/vim-exchange'
 
 " vim-go, for go yo
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
+
+Plugin 'godlygeek/csapprox'
+
+" substitute/hl preview
+Plugin 'osyo-manga/vim-over'
+
+" mini buf expl, because nice
+Plugin 'fholgado/minibufexpl.vim'
+
+Plugin 'fdietze/goodday.vim'
 
 "matchit already installed, just enable it
 runtime macros/matchit.vim
@@ -396,6 +407,15 @@ endfunction
 
 " shortcut to build ctags
 map <C-F11> :call BuildTags()<CR>
+
+augroup go_mappings
+    au FileType go nmap <leader>r <Plug>(go-run)
+    au FileType go nmap <leader>m <Plug>(go-build)
+    au FileType go nmap <leader>gd <Plug>(go-doc)
+    au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+    au FileType go nmap <leader>d <Plug>(go-def)
+    au FileType go nmap <leader>v <Plug>(go-vet)
+augroup END
 
 " look for tags recursively
 set tags=./tags;/
@@ -594,9 +614,12 @@ endfunction
 if has("gui_running")
     colorscheme jellybeans "gvim
 elseif $DISPLAY != ''
-    "colorscheme Tomorrow-Night "terminal in X
-    "colorscheme bubblegum "terminal in X
-    colorscheme wombat256mod "terminal in X
+    " colorscheme goodmorning "terminal in X
+    " colorscheme jellybeans "terminal in X
+    colorscheme lucius "terminal in X
+    " colorscheme Tomorrow-Night "terminal in X
+    " colorscheme bubblegum "terminal in X
+    " colorscheme wombat256mod "terminal in X
 else
     colorscheme default "terminal without X
 endif
