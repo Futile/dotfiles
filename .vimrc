@@ -105,7 +105,6 @@ set cmdheight=2
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
-" I have no idea what this does yet, so fuck it.
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
@@ -119,16 +118,24 @@ set smarttab "be smart about tabs!
 
 " Also show invisible characters
 set list
-set listchars=tab:⊳\ ,trail:·
+" set listchars=tab:\ \ ,trail:·
+" set listchars=tab:··,trail:·
+set listchars=tab:⊳·,trail:·
 
 " Automatic indentation, if the filetype is not known
 set autoindent
 "set smartindent
 set wrap "Wrap long lines!(soft)
 
+" Breakindent, break lines with correct indentation
+set breakindent
+
 " also look for a .vimrc in the current directory, safe commands only
 set exrc
 set secure
+
+" for neovim, maybe works?
+let g:python_host_prog='python2'
 
 " -------------------------------
 " Plugins
@@ -139,11 +146,11 @@ filetype off
 
 " use vundle to manage bundles/plugins.
 " do this before setting the colorscheme
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 "Vundle - Plugin Manager
-Plugin 'gmarik/vundle' 
+Plugin 'gmarik/Vundle.vim'
 
 "Library needed for some other scripts
 Plugin 'L9'
@@ -170,6 +177,8 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'chriskempson/base16-vim'
 Plugin 'industry.vim'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'freeo/vim-kalisi'
+Plugin 'sjl/badwolf'
 
 "lightline statusline
 Plugin 'itchyny/lightline.vim'
@@ -190,8 +199,8 @@ Plugin 'Lokaltog/vim-easymotion'
 "syntax highlighting and some things for scala files
 Plugin 'derekwyatt/vim-scala'
 
-"show 'Match x of y' when searching
-Plugin 'henrik/vim-indexed-search'
+"show 'Match x of y' when searching -- problems with hayabusa14/incsearch
+" Plugin 'henrik/vim-indexed-search'
 
 "GUndo script, presents a graphical representation of the vim undo tree
 Plugin 'sjl/gundo.vim'
@@ -200,7 +209,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'regedarek/ZoomWin'
 
 "easy way to switch to a buffer, or delet a buffer/tab.
-Plugin 'jeetsukumaran/vim-buffergator'
+" Plugin 'jeetsukumaran/vim-buffergator'
 
 "file browser
 Plugin 'scrooloose/nerdtree'
@@ -223,7 +232,7 @@ Plugin 'Shougo/vimshell'
 
 "vimside bundles
 "Plugin 'megaannum/self'
-"Plugin 'megaannum/forms' 
+"Plugin 'megaannum/forms'
 "Plugin 'megaannum/vimside'
 
 "GLSL highlighting
@@ -252,10 +261,18 @@ Plugin 'Chiel92/vim-autoformat'
 "delete/move/sudowrite etc for unix
 Plugin 'tpope/vim-eunuch'
 
-"gitgutter, show changed lines
-Plugin 'airblade/vim-gitgutter'
-" maybe randomly appearing signs caused by gitgutter?
-let g:gitgutter_realtime = 0
+" "gitgutter, show changed lines
+" Plugin 'airblade/vim-gitgutter'
+" " maybe randomly appearing signs caused by gitgutter?
+" let g:gitgutter_realtime = 0
+
+Plugin 'mhinz/vim-signify'
+
+" Signify
+let g:signify_sign_add = '+'
+let g:signify_sign_change = '⌇' " '︴⌇⌇┇
+let g:signify_sign_delete = '✕'
+let g:signify_sign_delete_first_line = '⌅'
 
 "allows to switch between header and source file
 Plugin 'derekwyatt/vim-fswitch'
@@ -264,7 +281,7 @@ Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
 
 " vim-hardmode: disable up/down/left/right and hjkl
-Plugin 'wikitopian/hardmode'
+" Plugin 'wikitopian/hardmode'
 
 "augroup hardmode
     "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
@@ -280,7 +297,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'justinmk/vim-sneak'
 
 "indent guides
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
 
 "automatic cursorline/cursorcolumn handling
 "DISABLED BECAUSE IT MESSED EVERYTHING UP WHEN HITTING ENTER IN INSERT MODE
@@ -295,9 +312,6 @@ Plugin 'myusuf3/numbers.vim'
 
 ":Wipeout all buffers which are not open in a tab/window
 Plugin 'wipeout'
-
-" CoVim, yay!
-Plugin 'FredKSchott/CoVim'
 
 " vim unimpaired
 Plugin 'tpope/vim-unimpaired'
@@ -320,14 +334,17 @@ Plugin 'tommcdo/vim-exchange'
 
 " vim-go, for go yo
 Plugin 'fatih/vim-go'
+let g:go_auto_type_info = 1
+" do imports on save, will also run fmt
+let g:go_fmt_command = "goimports"
 
 Plugin 'godlygeek/csapprox'
 
 " substitute/hl preview
-Plugin 'osyo-manga/vim-over'
+" Plugin 'osyo-manga/vim-over'
 
 " mini buf expl, because nice
-Plugin 'fholgado/minibufexpl.vim'
+" Plugin 'fholgado/minibufexpl.vim'
 
 Plugin 'fdietze/goodday.vim'
 
@@ -336,10 +353,67 @@ Plugin 'SirVer/ultisnips'
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+" multiple cursors!
+Plugin 'terryma/vim-multiple-cursors'
+
+" buffers in statusline
+Plugin 'bling/vim-bufferline'
+let g:bufferline_echo = 0
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''
+let g:bufferline_show_bufnr = 0
+
+Plugin 'vim-scripts/restore_view.vim'
 "matchit already installed, just enable it
 runtime macros/matchit.vim
+
+Plugin 'junegunn/goyo.vim'
+
+Plugin 'mattn/flappyvird-vim'
+
+Plugin 'caigithub/a_indent'
+
+Plugin 'wting/rust.vim'
+
+Plugin 'cstrahan/vim-capnp'
+
+" stuff for racer
+let g:racer_cmd = "racer"
+let $RUST_SRC_PATH="/home/felix/gits/rust/src"
+
+Plugin 'roman/golden-ratio'
+
+Plugin 'emgram769/vim-multiuser'
+
+Plugin 'haya14busa/incsearch.vim'
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+let g:incsearch#auto_nohlsearch = 1
+
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+Plugin 'pelodelfuego/vim-swoop'
+" <leader>gc <leader>gg <leader>gb
+
+Plugin 'ntpeters/vim-better-whitespace'
+au VimEnter * silent ToggleStripWhitespaceOnSave " somehow doesn't work if put into augroup
+
+Plugin 'EinfachToll/DidYouMean'
+
+" required
+call vundle#end()
+
+" enable filetype detection/auto indentation
+filetype plugin indent on
 
 "disable powerline
 let g:powerline_loaded = 1
@@ -373,15 +447,32 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Smart way to move between windows, adjusted for neo!
 " in insert mode
-imap ∫ <C-o><C-W>h
-imap ∀ <C-o><C-W>j
-imap Λ <C-o><C-W>k
-imap ∃ <C-o><C-W>l
+" imap ∫ <C-o><C-W>h
+" imap ∀ <C-o><C-W>j
+" imap Λ <C-o><C-W>k
+" imap ∃ <C-o><C-W>l
+" this sucked when wanting to really write ∀ etc.
 " and in other modes
 map ∫ <C-W>h
 map ∀ <C-W>j
 map Λ <C-W>k
 map ∃ <C-W>l
+
+nnoremap ß @q
+nnoremap ö :update<CR>
+nnoremap ä :q<CR>
+nnoremap ü :bd<CR>
+
+" folding with + and -
+noremap + za
+noremap - zf
+
+" jump to tag (for example in help files)
+nnoremap <leader>j <C-]>
+
+" map <leader>n to insert current timestamp
+" from: http://dailyvim.tumblr.com/post/102459770753/insert-the-current-time
+map <leader>n "=strftime("%FT%T%z")"<CR>Pa<SPACE>
 
 " Smart way to move between tabs - in NEO! :D
 " in insert mode
@@ -416,8 +507,10 @@ endfunction
 map <C-F11> :call BuildTags()<CR>
 
 augroup go_mappings
-    au FileType go nmap <leader>r <Plug>(go-run)
-    au FileType go nmap <leader>m <Plug>(go-build)
+    autocmd!
+    au FileType go nmap <leader>r :w<CR><bar><Plug>(go-run)
+    au FileType go nmap <leader>m :w<CR><bar><Plug>(go-build)
+    au FileType go nmap <leader>gt <Plug>(go-test)
     au FileType go nmap <leader>gd <Plug>(go-doc)
     au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
     au FileType go nmap <leader>d <Plug>(go-def)
@@ -486,6 +579,7 @@ nmap <silent> <F8> :TagbarToggle<CR>
 let g:ycm_extra_conf_globlist = ['~/gits/*', '~/seclab/*', '!~/*']
 let g:ycm_allow_changing_updatetime = 0
 set updatetime=1000
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <leader>y :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -501,7 +595,10 @@ let g:lightline = {
     \ 'colorscheme': 'jellybeans',
     \ 'active': {
     \   'left': [ [ 'mode' ],
-    \             [ 'fugitive', 'readonly', 'filename', 'current_tag'] ]
+    \             [ 'fugitive', 'readonly', 'filename', 'bufferline'] ]
+    \ },
+    \ 'component' : {
+    \   'bufferline' : '%{bufferline#refresh_status()}%{g:bufferline_status_info.before}%#TabLineSel#%{g:bufferline_status_info.current}%#LightLineLeft_active_1#%{g:bufferline_status_info.after}',
     \ },
     \ 'component_function': {
     \   'fugitive': 'MyFugitive',
@@ -624,6 +721,8 @@ elseif $DISPLAY != ''
     " colorscheme goodmorning "terminal in X
     " colorscheme jellybeans "terminal in X
     colorscheme lucius "terminal in X
+    " colorscheme badwolf "terminal in X
+    " colorscheme kalisi "terminal in X
     " colorscheme Tomorrow-Night "terminal in X
     " colorscheme bubblegum "terminal in X
     " colorscheme wombat256mod "terminal in X
@@ -652,6 +751,3 @@ augroup SyntaxAddons
     autocmd!
     autocmd Syntax {cpp,c} runtime syntax/doxygen.vim
 augroup END
-
-" enable filetype detection/auto indentation
-filetype plugin indent on

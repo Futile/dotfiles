@@ -8,8 +8,6 @@ close-templates # vector<vector<int>> instead of vector< vector< int> >
 
 pad-oper #pad around operators
 
-attach-inlines #attach brackets to inline function definitions
-
 indent-col1-comments #indent comments which start on the first line
 
 indent-namespaces #indent namespaces

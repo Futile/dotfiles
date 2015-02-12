@@ -1,5 +1,5 @@
 # alias to start X with local logging
-alias startx='startx &> ~/.xlog'
+# alias startx='startx &> ~/.xlog'
 
 # alias for sudoedit
 alias svim='sudoedit'
@@ -28,6 +28,8 @@ export PYTHONPATH=/usr/lib/python3.3/site-packages
 # export _JAVA_OPTIONS
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # export BROWSER
 export BROWSER='firefox'
 
@@ -40,5 +42,34 @@ export PATH="$PATH:$GOPATH/bin"
 # add rupa-v to path
 export PATH="$PATH:/home/felix/gits/rupa-v"
 
+# add local bin directory to path
+export PATH="$PATH:/home/felix/bin"
+
+# rust src path for racer
+export RUST_SRC_PATH="/home/felix/gits/rust/src"
+
+# add cope to path
+PATH=$(cope_path):$PATH
+
 # strong powerline
 # . /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
+
+## auto-fu.zsh stuff.
+# source ~/gits/auto-fu.zsh/auto-fu.zsh
+# { . ~/.zsh/auto-fu; auto-fu-install; }
+# zstyle ':auto-fu:highlight' input bold
+# zstyle ':auto-fu:highlight' completion fg=black,bold
+# zstyle ':auto-fu:highlight' completion/one fg=white,bold,underline
+# zstyle ':auto-fu:var' postdisplay $'\n-azfu-'
+# zstyle ':auto-fu:var' track-keymap-skip opp
+# zle-line-init () {auto-fu-init;}; zle -N zle-line-init
+# zle -N zle-keymap-select auto-fu-zle-keymap-select
+
+# vim-superman
+# vman() {
+#     vim -c "SuperMan $*"
+
+#     if [ "$?" != "0" ]; then
+#         echo "No manual entry for $*"
+#     fi
+# }

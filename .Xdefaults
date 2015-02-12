@@ -18,3 +18,10 @@ URxvt.font: xft:inconsolata:pixelsize=12
 
 ! - font antialiasing
 URxvt.xftAntialias: true
+
+! - stuff
+!Xft.hinting: true
+!Xft.hintstyle: hintsleight
+!Xft.antialias: true
+!Xft.dpi: 96
+!Xft.rgba: rgb
