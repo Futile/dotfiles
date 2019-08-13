@@ -488,17 +488,13 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; load OS-independent config
+  (load "~/.spacemacs.d/common-config.el")
+
+  ;; config for windows/this system
+
   ;; fix projectile on windows
   (setq projectile-git-submodule-command nil)
-
-  ;; auto use lsp for rust files
-  (add-hook 'rust-mode-hook #'lsp)
-
-  ;; enable backtraces for rust
-  (setq cargo-process--enable-rust-backtrace t)
-
-  ;; always company
-  (global-company-mode)
 
   ;; paths for programs required by ediff under windows
   (setq ediff-cmp-program "C:\\Program Files\\Git\\usr\\bin\\cmp.exe")
@@ -515,11 +511,6 @@ before packages are loaded."
 
   ;; set path to org files
   (setq org-agenda-files '("C:\\Users\\Felix\\Google Drive\\org"))
-
-  ;; my org todo keywords/states
-  (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-                            (sequence "QUESTION(q/@)" "|" "ANSWERED(a@)")
-                            (sequence "WAITING(w@/!)" "|")))
   )
 
 (defun dotspacemacs/emacs-custom-settings ()
