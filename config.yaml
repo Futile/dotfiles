@@ -9,8 +9,12 @@ dotfiles:
   f_bashrc:
     src: bashrc
     dst: ~/.bashrc
+  d_spacemacs.d:
+    src: spacemacs.d
+    dst: ~/.spacemacs.d
 profiles:
   HomeWin10:
     dotfiles:
     - f_bash_profile
     - f_bashrc
+    - d_spacemacs.d
