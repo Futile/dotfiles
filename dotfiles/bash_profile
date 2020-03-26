@@ -40,8 +40,11 @@ export CYGWIN="winsymlinks:nativestrict $CYGWIN"
 # Disable dotdrop autoupdate, this slows down the script a lot
 export DOTDROP_AUTOUPDATE="no"
 
+# Our profile on this machine
+export DOTDROP_PROFILE="HomeWin10"
+
 # dotdrop alias
-alias dotdrop='$HOME/dotfiles/dotdrop.sh --no-banner --cfg=$HOME/dotfiles/config.yaml --profile=HomeWin10'
+alias dotdrop='$HOME/dotfiles/dotdrop.sh --no-banner --cfg=$HOME/dotfiles/config.yaml'
 
 # Set MANPATH so it includes users' private man if it exists
 # if [ -d "${HOME}/man" ]; then
